@@ -1,49 +1,47 @@
 import React from 'react';
 import {
-  AppRegistry,
-  Text,
-  Button,
-  StyleSheet,
-  Image,View
+    AppRegistry,
+    Text,
+    Button,
+    StyleSheet,
+    ToolbarAndroid,
+    Image,
+    View
 } from 'react-native';
- const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    alignItems : 'center',
-    justifyContent:'center',
-    backgroundColor :'#FFF',
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#FFF',
+    },
+    abt: {
 
-  },
-  
-  instructions:{
-    textAlign:'center',
-    color:'#333333',
-    marginBottom:5,
-  },
-  home:{
-    
-    fontSize:20,
-    paddingBottom:20,
-    textAlign:'center',
-    
-    
+        fontSize: 20,
+        paddingBottom: 20,
+        textAlign: 'center',
+    },
+    toolbar: {
+        height: 56,
+        backgroundColor: '#4883da',
+    },
 
-  },
 });
-
-const Home = () => {
+const Home = (props) => {
+    const { navigate } = props.navigation;
     return (
 
-      <View style={styles.container}>
-     <Text style={styles.home}>
-     Home
+        <View style={styles.container}>    
+    <View>
+      <Text style={styles.abt}>
+         Home
         </Text>
         </View>
-
+        </View>
     );
-  
+
 }
 Home.navigationOptions = {
-  title : 'Home',
+    title: 'Home'
 };
 export default Home

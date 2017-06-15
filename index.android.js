@@ -12,26 +12,40 @@ import {
   View
 } from 'react-native';
 
-// render: function() {
-//   var navigationView = (
-//     <View style={{flex: 1, backgroundColor: '#fff'}}>
-//       <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-//     </View>
-//   );
-import Team from './src/Team'
+
+
 import { DrawerNavigator } from 'react-navigation'
-import Wallpapers from './src/Wallpapers'
+import { StackNavigator } from 'react-navigation'
 import Home from './src/Home'
+import Team from './src/Team'
+import CareersPortal from './src/CareersPortal'
+import Register from './src/Register'
+
 export default class DrawerNavigatorExample extends Component {
- 
+	render()
+	{
+ const { navigation } =this.props;
+      
+      return (
+        <Home navigation={ navigation }/> );
+}
 }
 
-const App =DrawerNavigator({
-  Home:{screen: Home},
+const DrawerApp =DrawerNavigator({
+  Home:{screen:Home},
   Team :{ screen: Team},
-  Wallpapers:{screen: Wallpapers}
+  CareersPortal:{screen: CareersPortal},
   
 });
+
+const App= StackNavigator({
+  Home :{ screen: DrawerApp},
+  Register:{ screen :Register},
+
+});
+// DrawerApp.navigationOptions = {
+//   title: 'Home',
+//   };
 
 
 AppRegistry.registerComponent('DrawerNavigatorExample', () => App);
